@@ -1,16 +1,11 @@
 ﻿
 using AutoMapper;
 using HealthCareAppApi.API.Data;
+using HealthCareAppApi.API.Entities;
+using HealthCareAppApi.API.Repositories.Implementation;
+using HealthCareAppApi.API.Repositories.Interfaces;
 using HealthCareAppApi.API.UnitOfWork.Interfaces;
-
-//using Kutiyana_Memon_Hospital_Api.API.Data;
-//using Kutiyana_Memon_Hospital_Api.API.Entities;
-//using Kutiyana_Memon_Hospital_Api.API.Repositories.Implementation;
-//using Kutiyana_Memon_Hospital_Api.API.Repositories.Interfaces;
-//using Kutiyana_Memon_Hospital_Api.API.UnitOfWork.Interfaces;
-//using Kutiyana_Memon_Hospital_Api.Repositories.Implementation;
-//using Kutiyana_Memon_Hospital_Api.Repositories.Interfaces;
-//using Kutiyana_Memon_Hospital_Api.Repositories.Interfaces.Kutiyana_Memon_Hospital_Api.Repositories.Interfaces;
+using HealthCareAppApi.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace HealthCareAppApi.API.UnitOfWork.Implementation
@@ -25,43 +20,43 @@ namespace HealthCareAppApi.API.UnitOfWork.Implementation
             _context = context;
         }
 
-        //private IGenericRepository<User> _users;
-        //public IGenericRepository<User> Users =>
-        //    _users ??= new GenericRepository<User>(_context);
+        private IGenericRepository<User> _users;
+        public IGenericRepository<User> Users =>
+            _users ??= new GenericRepository<User>(_context);
 
-        //private IGenericRepository<Role> _roles;
-        //public IGenericRepository<Role> Roles =>
-        //    _roles ??= new GenericRepository<Role>(_context);
+        private IGenericRepository<Role> _roles;
+        public IGenericRepository<Role> Roles =>
+            _roles ??= new GenericRepository<Role>(_context);
 
-        //private ICompanyRepository _companies;
-        //public ICompanyRepository companyRepository =>
-        //    _companies ??= new CompanyRepository(_context, _mapper);
-
-
-        //private IRoleRepository _roleRepository;
-        //public IRoleRepository roleRepository =>
-        //    _roleRepository ??= new RoleRepository(_context, _mapper);
-
-        //private IGenericRepository<RoleModuleAccess> _roleModuleAccess;
-        //public IGenericRepository<RoleModuleAccess> roleModuleAccessRepository =>
-        //    _roleModuleAccess ??= new GenericRepository<RoleModuleAccess>(_context);
+        private ICompanyRepository _companies;
+        public ICompanyRepository companyRepository =>
+            _companies ??= new CompanyRepository(_context, _mapper);
 
 
-        //private IUserRepository _user;
-        //public IUserRepository userRepository =>
-        //    _user ??= new UserRepository(_context, _mapper);
+        private IRoleRepository _roleRepository;
+        public IRoleRepository roleRepository =>
+            _roleRepository ??= new RoleRepository(_context, _mapper);
 
-        //private IAuthRepository _authRepository;
-        //public IAuthRepository authRepository =>
-        //    _authRepository ??= new AuthRepository(_context, _mapper);
+        private IGenericRepository<RoleModuleAccess> _roleModuleAccess;
+        public IGenericRepository<RoleModuleAccess> roleModuleAccessRepository =>
+            _roleModuleAccess ??= new GenericRepository<RoleModuleAccess>(_context);
 
-        //private IMenuRepository _menuRepository;
-        //public IMenuRepository menuRepository =>
-        //    _menuRepository ??= new MenuRepository(_context, _mapper);
 
-        //private ILookupRepository _lookupRepository;
-        //public ILookupRepository lookupRepository =>
-        //    _lookupRepository ??= new LookupRepository (_context, _mapper);
+        private IUserRepository _user;
+        public IUserRepository userRepository =>
+            _user ??= new UserRepository(_context, _mapper);
+
+        private IAuthRepository _authRepository;
+        public IAuthRepository authRepository =>
+            _authRepository ??= new AuthRepository(_context, _mapper);
+
+        private IMenuRepository _menuRepository;
+        public IMenuRepository menuRepository =>
+            _menuRepository ??= new MenuRepository(_context, _mapper);
+
+        private ILookupRepository _lookupRepository;
+        public ILookupRepository lookupRepository =>
+            _lookupRepository ??= new LookupRepository(_context, _mapper);
 
         //private IPatientRepository _patientRepository; 
         //public IPatientRepository patientRepository =>
@@ -197,22 +192,22 @@ namespace HealthCareAppApi.API.UnitOfWork.Implementation
         //public IDialysisMachineRepository _dialysisMachineRepository =>
         //    dialysisMachineRepository ??= new DialysisMachineRepository(_context, _mapper);
 
-        //public async Task<int> SaveChangesAsync()
-        //{
-        //    try
-        //    {
-        //        return await _context.SaveChangesAsync();
-        //    }
-        //    catch (DbUpdateException dbEx)
-        //    { 
-        //        throw new Exception("Database update failed. See inner exception for details.", dbEx);
-        //    }
+        public async Task<int> SaveChangesAsync()
+        {
+            try
+            {
+                return await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException dbEx)
+            {
+                throw new Exception("Database update failed. See inner exception for details.", dbEx);
+            }
 
-        //    catch (Exception ex)
-        //    { 
-        //        throw new Exception("An unexpected error occurred while saving changes.", ex);
-        //    }
-        //}
+            catch (Exception ex)
+            {
+                throw new Exception("An unexpected error occurred while saving changes.", ex);
+            }
+        }
 
 
         public void Dispose() =>

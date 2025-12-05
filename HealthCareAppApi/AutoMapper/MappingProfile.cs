@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-//using Kutiyana_Memon_Hospital_Api.API.Entities;
-//using Kutiyana_Memon_Hospital_Api.DTOs.Request;
-//using Kutiyana_Memon_Hospital_Api.DTOs.Response;
+using HealthCareAppApi.API.Entities;
+using HealthCareAppApi.DTOs.Request;
+using HealthCareAppApi.DTOs.Response;
 
 namespace HealthCareAppApi.API.AutoMapper
 {
@@ -10,8 +10,8 @@ namespace HealthCareAppApi.API.AutoMapper
         public MappingProfile()
         {
             // User
-            //CreateMap<ApplicationUserRequest, User>();
-            //CreateMap<User, ApplicationUserResponse>();
+            CreateMap<ApplicationUserRequest, User>();
+            CreateMap<User, ApplicationUserResponse>();
 
             // Role → Request/Response
             //CreateMap<RoleRequest, Role>()

@@ -29,7 +29,7 @@ namespace HealthCareAppApi.API.Helpers
             new Claim("FullName", user.FullName ?? ""),
             new Claim("RoleId", user.RoleId.ToString()),
             new Claim("RoleName", role.Name ?? "User"),
-            new Claim("CompanyId", user.CompanyId.ToString())
+            new Claim("locationId", user.locationId.ToString())
         };
 
             // 🔹 Add Module permissions

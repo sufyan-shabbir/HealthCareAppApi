@@ -6,10 +6,8 @@ namespace HealthCareAppApi.API.Entities
     {
         public int Id { get; set; }
         public Guid GlobalId { get; set; } = Guid.NewGuid();
-        public int CompanyId { get; set; }
-
-        //[ForeignKey(nameof(CompanyId))]
-        //public Company? Company { get; set; }
+        public int locationId { get; set; }
+        public Company? location { get; set; }
         public bool IsActive { get; set; } = true;
         public bool IsDeleted { get; set; } = false;
         public DateTime CreatedOn { get; set; } = DateTime.UtcNow;

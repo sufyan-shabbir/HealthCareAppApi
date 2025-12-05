@@ -1,24 +1,21 @@
 ﻿
-
-//using Kutiyana_Memon_Hospital_Api.API.Entities;
-//using Kutiyana_Memon_Hospital_Api.API.Repositories.Implementation;
-//using Kutiyana_Memon_Hospital_Api.API.Repositories.Interfaces;
-//using Kutiyana_Memon_Hospital_Api.Repositories.Interfaces;
-//using Kutiyana_Memon_Hospital_Api.Repositories.Interfaces.Kutiyana_Memon_Hospital_Api.Repositories.Interfaces;
+using HealthCareAppApi.API.Entities;
+using HealthCareAppApi.API.Repositories.Interfaces;
+using HealthCareAppApi.Repositories.Interfaces;
 
 namespace HealthCareAppApi.API.UnitOfWork.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
-        //IGenericRepository<User> Users { get; }
-        //IGenericRepository<Role> Roles { get; }
-        //ICompanyRepository companyRepository { get; }
-        //IRoleRepository roleRepository { get; }
-        //IGenericRepository<RoleModuleAccess> roleModuleAccessRepository { get; }
-        //IUserRepository userRepository { get; }
-        //IAuthRepository authRepository { get; }
-        //IMenuRepository menuRepository { get; }
-        //ILookupRepository lookupRepository { get; }
+        IGenericRepository<User> Users { get; }
+        IGenericRepository<Role> Roles { get; }
+        ICompanyRepository companyRepository { get; }
+        IRoleRepository roleRepository { get; }
+        IGenericRepository<RoleModuleAccess> roleModuleAccessRepository { get; }
+        IUserRepository userRepository { get; }
+        IAuthRepository authRepository { get; }
+        IMenuRepository menuRepository { get; }
+        ILookupRepository lookupRepository { get; }
         //IPatientRepository patientRepository { get; }
         //IVisitRepository visitRepository { get; }
         //ICityRepository cityRepository { get; }
@@ -56,6 +53,6 @@ namespace HealthCareAppApi.API.UnitOfWork.Interfaces
         //IDialysisMachineRepository _dialysisMachineRepository { get; }
 
 
-        //Task<int> SaveChangesAsync();
+        Task<int> SaveChangesAsync();
     }
 }

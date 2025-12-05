@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace Kutiyana_Memon_Hospital_Api.API.Services.GetCurrentUser
+namespace HealthCareAppApi.API.Services.GetCurrentUser
 {
     public class UserContextService : IUserContextService
     {

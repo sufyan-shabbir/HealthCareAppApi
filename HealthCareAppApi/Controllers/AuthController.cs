@@ -1,8 +1,6 @@
-﻿//using Kutiyana_Memon_Hospital_Api.API.Modals;
-//using Kutiyana_Memon_Hospital_Api.API.Services.Implementation;
-//using Kutiyana_Memon_Hospital_Api.API.Services.Interfaces;
-//using Kutiyana_Memon_Hospital_Api.DTOs.Request;
-//using Kutiyana_Memon_Hospital_Api.DTOs.Response; 
+﻿
+using HealthCareAppApi.API.Services.Interfaces;
+using HealthCareAppApi.DTOs.Request;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HealthCareAppApi.API.Controllers
@@ -11,21 +9,21 @@ namespace HealthCareAppApi.API.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        //private readonly IAuthService _auth;
-        //private readonly IEmailService _emailService;
+        private readonly IAuthService _auth;
+        private readonly IEmailService _emailService;
         public AuthController( )
         { 
         }
 
-        //[HttpPost("login")]
-        //public async Task<IActionResult> Login([FromBody] AuthRequestDto request)
-        //{
-        //    var token = await _auth.LoginAsync(request);
-        //    if (token == null)
-        //        return Unauthorized(new { message = "Invalid credentials" });
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] AuthRequestDto request)
+        {
+            var token = await _auth.LoginAsync(request);
+            if (token == null)
+                return Unauthorized(new { message = "Invalid credentials" });
 
-        //    return Ok(new { token });
-        //}
+            return Ok(new { token });
+        }
 
         //[HttpPost("forgot-password")]
         //public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto request)
