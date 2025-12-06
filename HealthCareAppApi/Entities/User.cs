@@ -20,7 +20,6 @@
         public DateTime? JoiningDate { get; set; }
         public string? ResetPasswordToken { get; set; }
         public DateTime? ResetTokenExpiry { get; set; }
-        public bool IsActive { get; set; } = true; 
         public string FullName
         {
             get

@@ -41,12 +41,12 @@ namespace HealthCareAppApi.API.Controllers
         }
 
 
-        //[HttpGet("GetById")]
-        //public async Task<ActionResult<ResponseModel<object>>> GetById(int id)
-        //{
-        //    var response = await _userService.GetUserByIdAsync(id);
-        //    return StatusCode(response.HttpStatusCode, response);
-        //}
+        [HttpGet("GetById")]
+        public async Task<ActionResult<ResponseModel<object>>> GetById(int id)
+        {
+            var response = await _userService.GetUserByIdAsync(id);
+            return StatusCode(response.HttpStatusCode, response);
+        }
 
         //[HttpGet("GetAll")]
         //public async Task<IActionResult> GetAllUsers()

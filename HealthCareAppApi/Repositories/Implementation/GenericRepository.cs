@@ -28,7 +28,7 @@ namespace HealthCareAppApi.API.Repositories.Implementation
 
         public async Task<User?> GetByEmailOrUserNameAsync(string identifier)
         {
-            return await _context.ApplicationUser
+            return await _context.Users
                 .FirstOrDefaultAsync(u => u.Email == identifier || u.UserName == identifier);
         }
 

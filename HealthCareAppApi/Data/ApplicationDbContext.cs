@@ -101,7 +101,7 @@ namespace HealthCareAppApi.API.Data
         // Register Entities
         public DbSet<Role> role { get; set; }
         public DbSet<RoleModuleAccess> roleModuleAccess { get; set; }
-        public DbSet<User> ApplicationUser { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<Company> company { get; set; }
         public DbSet<Lookup> lookup { get; set; }
         public DbSet<FormName> formName { get; set; }

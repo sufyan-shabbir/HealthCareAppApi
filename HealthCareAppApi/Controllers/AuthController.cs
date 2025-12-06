@@ -11,8 +11,10 @@ namespace HealthCareAppApi.API.Controllers
     {
         private readonly IAuthService _auth;
         private readonly IEmailService _emailService;
-        public AuthController( )
-        { 
+        public AuthController(IAuthService auth, IEmailService emailService)
+        {
+            _auth = auth;
+            _emailService = emailService;
         }
 
         [HttpPost("login")]
@@ -22,8 +24,9 @@ namespace HealthCareAppApi.API.Controllers
             if (token == null)
                 return Unauthorized(new { message = "Invalid credentials" });
 
-            return Ok(new { token });
+            return Ok(token);
         }
+
 
         //[HttpPost("forgot-password")]
         //public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto request)

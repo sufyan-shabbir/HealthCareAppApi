@@ -40,7 +40,7 @@ builder.Services.RegisterServices();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IFunctionRepository, FunctionRepository>();
 
-// ✅ Register EmailService for DI
+//Register EmailService for DI
 builder.Services.AddTransient<IEmailService, EmailService>();
 
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
@@ -48,10 +48,7 @@ builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 // JWT Authentication
 builder.Services.AddJwtAuthentication(builder.Configuration);
 
-
-
-
-// ✅ CORS for Angular App
+// CORS for Angular App
 
 builder.Services.AddCors(options =>
 {
@@ -67,7 +64,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Kutiyana Memon Hospital API", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Health Care App API", Version = "v1" });
 
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {

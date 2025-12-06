@@ -32,7 +32,7 @@ namespace HealthCareAppApi.API.Services.Implementation
 
         public async Task<AuthResponseDto?> LoginAsync(AuthRequestDto request)
         {
-            var user = await _context.ApplicationUser
+            var user = await _context.Users
                 .Include(u => u.Role)
                 .FirstOrDefaultAsync(u => u.Email == request.EmailOrUsername || u.UserName == request.EmailOrUsername);
 
@@ -73,6 +73,7 @@ namespace HealthCareAppApi.API.Services.Implementation
                 Permissions = permissions
             };
         }
+          
 
         //public async Task ForgotPasswordAsync(string email)
         //{

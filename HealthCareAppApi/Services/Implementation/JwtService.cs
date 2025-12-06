@@ -16,7 +16,7 @@ namespace HealthCareAppApi.API.Services.Implementation
             _configuration = configuration;
         }
 
-        public string GenerateToken(User user, Role role, List<RoleModuleAccess> moduleAccesses)
+        public string GenerateToken(User user, Role? role, List<RoleModuleAccess>? moduleAccesses)
         {
             var jwtSettings = _configuration.GetSection("JwtSettings");
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["SecretKey"]));
@@ -32,14 +32,14 @@ namespace HealthCareAppApi.API.Services.Implementation
                 new Claim("locationId", user.locationId.ToString()),
                 //new Claim("CompanyName", user.company?.Name ?? "")
             };
-             
+
             var permissions = new Dictionary<string, object>();
 
             foreach (var access in moduleAccesses)
             {
                 if (access.Module == null) continue;
 
-                var moduleName = access.Module.Name;  
+                var moduleName = access.Module.Name;
 
                 permissions[moduleName] = new
                 {
@@ -64,5 +64,9 @@ namespace HealthCareAppApi.API.Services.Implementation
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
+
+
+
     }
 }
